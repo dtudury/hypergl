@@ -1,0 +1,26 @@
+{
+  "name": "hypergl",
+  "version": "1.0.0",
+  "description": "reacty webgl",
+  "main": "build.js",
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^0.41.4",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-uglify": "^1.0.1"
+  },
+  "scripts": {
+    "build": "node build.js --build",
+    "watch": "node build.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtudury/hypergl.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dtudury/hypergl/issues"
+  },
+  "homepage": "https://github.com/dtudury/hypergl#readme"
+}
