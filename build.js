@@ -18,7 +18,7 @@ mkdirps(["dist"], err => {
     if (err) return console.error(err);
     //copy("src/index.html", "dist/index.html");
     //copy("src/favicon.ico", "dist/favicon.ico");
-    build("src/main.ts", "dist/main.js");
+    build("src/main.tsx", "dist/main.js");
     //build("src/service.js", "dist/service.js");
 });
 

@@ -3,3 +3,5 @@ let test = (val:number) => {
 };
 
 test(4);
+
+var asdf = <test>foo</test>;
