@@ -4,18 +4,22 @@ const fs = require('fs');
 const path = require('path');
 const rollup = require('rollup');
 const buble = require('rollup-plugin-buble');
+const typescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 
 let is_watching = process.argv.pop() === "--watch";
-let plugins = [buble({jsx: "h"})];
+let plugins = [
+    typescript({typescript: require('typescript')}),
+    buble({jsx: "h"})
+];
 if (!is_watching) plugins.push(uglify());
 
 mkdirps(["dist"], err => {
     if (err) return console.error(err);
-    copy("src/index.html", "dist/index.html");
-    copy("src/favicon.ico", "dist/favicon.ico");
-    build("src/main.js", "dist/main.js");
-    build("src/service.js", "dist/service.js");
+    //copy("src/index.html", "dist/index.html");
+    //copy("src/favicon.ico", "dist/favicon.ico");
+    build("src/main.ts", "dist/main.js");
+    //build("src/service.js", "dist/service.js");
 });
 
 function mkdirps (paths, cb) {
@@ -68,7 +72,7 @@ function build(entry, dest) {
             timeout = null;
             return rollup.rollup({entry, plugins, cache, onwarn});
         })
-        .then(bundle => (cache = bundle).write({dest, sourceMap: true}))
+        .then(bundle => (cache = bundle).write({dest, format: 'es', sourceMap: true}))
         .then(() => console.timeEnd(`    SUCCESS:  ${task}`))
         .then(() => {
             if (is_watching) {
