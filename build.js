@@ -16,7 +16,7 @@ if (!is_watching) plugins.push(uglify());
 
 mkdirps(["dist"], err => {
     if (err) return console.error(err);
-    //copy("src/index.html", "dist/index.html");
+    copy("src/index.html", "dist/index.html");
     //copy("src/favicon.ico", "dist/favicon.ico");
     build("src/main.tsx", "dist/main.js");
     //build("src/service.js", "dist/service.js");
@@ -77,7 +77,16 @@ function build(entry, dest) {
         .then(() => {
             if (is_watching) {
                 watchers.forEach(watcher => watcher.close());
-                watchers = cache.modules.map(module => fs.watch(module.id, f));
+                watchers = [];
+                cache.modules.forEach(module => {
+                  //typescript results into some weird module in the cache
+                  try {
+                    let watcher = fs.watch(module.id, f);
+                    watchers.push(watcher);
+                  } catch (e) {
+                    console.log(e);
+                  }
+                });
             }
         })
         .catch(err => {
