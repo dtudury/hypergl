@@ -1,6 +1,7 @@
 
 import Model from "./lib/DupserModel";
 
+
 let model:Model = new Model();
 
 let h = function() {};
