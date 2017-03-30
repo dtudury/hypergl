@@ -1,0 +1,21 @@
+[{
+    "transformer": "autobots_copy",
+    "src": "src/index.html",
+    "dest": "dist/index.html"
+  },
+  {
+    "transformer": "autobots_copy",
+    "src": "src/favicon.ico",
+    "dest": "dist/favicon.ico"
+  },
+  {
+    "transformer": "autobots_tsx-to-js",
+    "src": "src/main.tsx",
+    "dest": "dist/main.js"
+  },
+  {
+    "transformer": "autobots_sass-to-css",
+    "src": "src/styles.scss",
+    "dest": "dist/styles.css"
+  }
+]

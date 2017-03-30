@@ -5,12 +5,7 @@
   "main": "build.js",
   "dependencies": {},
   "devDependencies": {
-    "autobots": "0.0.0",
-    "node-sass": "^4.5.0",
-    "rollup": "^0.41.4",
-    "rollup-plugin-typescript": "^0.8.1",
-    "rollup-plugin-uglify": "^1.0.1",
-    "typescript": "^2.1.5"
+    "autobots": "0.0.0"
   },
   "scripts": {
     "build": "node build.js --build",
@@ -26,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/dtudury/hypergl/issues"
   },
-  "homepage": "https://github.com/dtudury/hypergl#readme"
+  "homepage": "https://github.com/dtudury/hypergl#readme",
+  "eslintConfig": {
+    "rules": {
+      "no-console": "off"
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended"
+  }
 }

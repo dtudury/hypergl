@@ -4,7 +4,7 @@
         "jsx": "react",
         "reactNamespace": "h",
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
         "noImplicitAny": false,
         "sourceMap": true,
         "outFile": "dist/all.js"
