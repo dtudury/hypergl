@@ -5,7 +5,7 @@
   "main": "build.js",
   "dependencies": {},
   "devDependencies": {
-    "autobots": "0.0.0"
+    "autobots": "0.0.1"
   },
   "scripts": {
     "build": "node build.js --build",
